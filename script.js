@@ -1,17 +1,16 @@
-function firstNonRepeatedChar(str) {
-	let count = {};
+function firstNonRepeatedChar(text) {
+    let str = text.trim();
 
-	for(let i = 0 ; i < str.length ; i++){
-		let ch = str[i];
-		const[ch] = (count [ch] || 0) + 1;
-	}
+    for (let i = 0; i < str.length; i++) {
+        let ch = str.charAt(i);
 
-	for(let i = 0; i < str.length; i++){
-		if(count [str[i]] === 1){
-			return str[i];
-		}
-	}
-	return null;
+        if (str.indexOf(ch) === str.lastIndexOf(ch)) {
+            return ch;
+        }
+    }
+    return null;
 }
-const input = prompt("Enter a string");
-alert(firstNonRepeatedChar(input)); 
+
+// Do not change the code below
+const text = prompt("Enter text:");
+alert(firstNonRepeatedChar(text));
